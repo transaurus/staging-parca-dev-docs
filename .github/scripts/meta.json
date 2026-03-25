@@ -1,0 +1,10 @@
+{
+  "sourceUrl": "https://github.com/parca-dev/docs",
+  "branch": "main",
+  "docusaurusRoot": ".",
+  "configFile": "docusaurus.config.js",
+  "translateCommand": "yarn write-translations",
+  "buildCommand": "yarn build",
+  "buildOutput": "build/docs",
+  "packageManager": "yarn"
+}
