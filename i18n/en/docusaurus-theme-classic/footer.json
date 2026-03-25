@@ -1,0 +1,66 @@
+{
+  "link.title.Docs": {
+    "message": "Docs",
+    "description": "The title of the footer links column with title=Docs in the footer"
+  },
+  "link.title.Quick Start": {
+    "message": "Quick Start",
+    "description": "The title of the footer links column with title=Quick Start in the footer"
+  },
+  "link.title.Community": {
+    "message": "Community",
+    "description": "The title of the footer links column with title=Community in the footer"
+  },
+  "link.title.More": {
+    "message": "More",
+    "description": "The title of the footer links column with title=More in the footer"
+  },
+  "link.item.label.Overview": {
+    "message": "Overview",
+    "description": "The label of footer link with label=Overview linking to /docs/overview"
+  },
+  "link.item.label.FAQ": {
+    "message": "FAQ",
+    "description": "The label of footer link with label=FAQ linking to /docs/faq"
+  },
+  "link.item.label.Governance": {
+    "message": "Governance",
+    "description": "The label of footer link with label=Governance linking to /docs/governance"
+  },
+  "link.item.label.How to get started": {
+    "message": "How to get started",
+    "description": "The label of footer link with label=How to get started linking to /quickstart"
+  },
+  "link.item.label.Parca from Binary": {
+    "message": "Parca from Binary",
+    "description": "The label of footer link with label=Parca from Binary linking to /docs/binary"
+  },
+  "link.item.label.Parca from Snapcraft": {
+    "message": "Parca from Snapcraft",
+    "description": "The label of footer link with label=Parca from Snapcraft linking to /docs/parca-snap"
+  },
+  "link.item.label.Parca in Kubernetes": {
+    "message": "Parca in Kubernetes",
+    "description": "The label of footer link with label=Parca in Kubernetes linking to /docs/kubernetes"
+  },
+  "link.item.label.Discord": {
+    "message": "Discord",
+    "description": "The label of footer link with label=Discord linking to https://discord.gg/ZgUpYgpzXy"
+  },
+  "link.item.label.Twitter": {
+    "message": "Twitter",
+    "description": "The label of footer link with label=Twitter linking to https://twitter.com/ParcaDev"
+  },
+  "link.item.label.YouTube": {
+    "message": "YouTube",
+    "description": "The label of footer link with label=YouTube linking to https://www.youtube.com/channel/UCRrqAGuajRqIX_E_arNnYCw"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/parca-dev/parca"
+  },
+  "copyright": {
+    "message": "Copyright © 2026 Parca Project, Built with Docusaurus.",
+    "description": "The footer copyright"
+  }
+}

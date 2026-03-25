@@ -1,0 +1,107 @@
+# Parca Agent from Binary
+
+import WithVersions from '@site/src/components/WithVersions';
+import CodeBlock from '@theme/CodeBlock';
+import BrowserWindow from '@site/src/components/BrowserWindow';
+
+You can download the latest agent binary release for your architecture from our [releases page](https://github.com/parca-dev/parca-agent/releases).
+<WithVersions language="bash">
+  { versions =>
+    <CodeBlock className="language-bash">
+      curl -sL https://github.com/parca-dev/parca-agent/releases/download/{versions.agent}/parca-agent_{versions.agent.substring(1)}_`uname -s`_`uname -m` -o parca-agent && \{'\n'}
+      chmod +x parca-agent
+    </CodeBlock>
+  }
+</WithVersions>
+
+We also produce Docker images that can be pulled:
+<WithVersions language="bash">
+  { versions =>
+    <CodeBlock className="language-bash">
+      docker pull ghcr.io/parca-dev/parca-agent:{versions.agent}
+    </CodeBlock>
+  }
+</WithVersions>
+
+To start Parca Agent, run the following command with the flag:
+```shell
+sudo parca-agent --log-level=debug --node=binary-test --remote-store-address=localhost:7070 --remote-store-insecure
+```
+
+:::info
+
+The Agent needs to run as a privileged user to load necessary eBPF programs to Kernel. Please check [our FAQ for further information](/docs/faq#since-parca-agent-has-to-run-as-root-for-ebpf-what-are-the-security-considerations).
+
+:::
+
+The command in the above configuration targets the Parca server that is presumably running on your system. And it uses the `systemd` service discovery to find the cgroups that have been running on your system.
+
+:::caution
+
+Note that Parca Agent's `systemd` metadata service discovery supports cgroup v1 and v2. This is only used to enrich the metadata of collected profiles.
+
+:::
+
+You should see with some log lines:
+```shell
+ooooooooo.                                                  .o.                                            .
+`888   `Y88.                                               .888.                                         .o8
+ 888   .d88'  .oooo.   oooo d8b  .ooooo.   .oooo.         .8"888.      .oooooooo  .ooooo.  ooo. .oo.   .o888oo
+ 888ooo88P'  `P  )88b  `888""8P d88' `"Y8 `P  )88b       .8' `888.    888' `88b  d88' `88b `888P"Y88b    888
+ 888          .oP"888   888     888        .oP"888      .88ooo8888.   888   888  888ooo888  888   888    888
+ 888         d8(  888   888     888   .o8 d8(  888     .8'     `888.  `88bod8P'  888    .o  888   888    888 .
+o888o        `Y888""8o d888b    `Y8bod8P' `Y888""8o   o88o     o8888o `8oooooo.  `Y8bod8P' o888o o888o   "888"
+                                                                      d"     YD
+                                                                      "Y88888P'
+
+level=info name=parca-agent ts=2022-11-29T14:57:26.568980949Z caller=main.go:196 msg="eBPF is supported and enabled by the host kernel"
+level=debug name=parca-agent ts=2022-11-29T14:57:26.569040357Z caller=main.go:214 msg="parca-agent initialized" version= commit=c213fbef9bd9477177719e6c78a95519e2125434 date=2022-11-29T14:44:57Z config="{LogLevel:debug HTTPAddress::7071 Node:binary-test ConfigPath:parca-agent.yaml MemlockRlimit:268435456 ProfilingDuration:10s MetadataExternalLabels:map[] MetadataContainerRuntimeSocketPath: LocalStoreDirectory: RemoteStoreAddress:localhost:7070 RemoteStoreBearerToken: RemoteStoreBearerTokenFile: RemoteStoreInsecure:true RemoteStoreInsecureSkipVerify:false RemoteStoreDebuginfoUploadDisable:false RemoteStoreBatchWriteInterval:10s DebuginfoDirectories:[/usr/lib/debug] DebuginfoTempDir:/tmp DebuginfoStrip:true DebuginfoUploadCacheDuration:5m0s DebuginfoUploadTimeoutDuration:2m0s DebugProcessNames:[] ExperimentalEnableDWARFUnwinding:false}" arch=amd64
+name=parca-agent ts=2022-11-29T14:57:26.569167743Z caller=main.go:273 msg=starting... node=binary-test store=localhost:7070
+level=debug name=parca-agent ts=2022-11-29T14:57:26.569210541Z caller=discovery_manager.go:310 msg="cannot create service discovery" err="create kubernetes client: create in-cluster config: unable to load in-cluster configuration, KUBERNETES_SERVICE_HOST and KUBERNETES_SERVICE_PORT must be defined" type=binary-test
+level=debug name=parca-agent ts=2022-11-29T14:57:26.56922839Z caller=discovery_manager.go:186 msg="starting provider" provider=systemd/0 subs=[all]
+level=debug name=parca-agent ts=2022-11-29T14:57:26.570198796Z caller=main.go:258 msg="starting: batch write client"
+level=debug name=parca-agent ts=2022-11-29T14:57:26.570197546Z caller=main.go:539 msg="starting: http server"
+level=debug name=parca-agent ts=2022-11-29T14:57:26.570212255Z caller=main.go:581 msg="starting: config file reloader"
+level=debug name=parca-agent ts=2022-11-29T14:57:26.570207835Z caller=main.go:517 msg="starting: profiler" name=parca_agent_cpu
+level=debug name=parca-agent ts=2022-11-29T14:57:26.570248244Z caller=cpu.go:215 msg="starting cpu profiler"
+level=debug name=parca-agent ts=2022-11-29T14:57:26.570197136Z caller=main.go:301 msg="starting: discovery manager"
+level=debug name=parca-agent ts=2022-11-29T14:57:26.57063239Z caller=cpu.go:236 msg="increased max memory locked rlimit" limit="268 MB"
+level=debug name=parca-agent ts=2022-11-29T14:57:26.790413175Z caller=cpu.go:346 msg="start profiling loop"
+```
+
+Now we can view the active profilers by visiting `http://localhost:7071`:
+<BrowserWindow>
+
+![image](../static/img/tutorial/active_profilers.png)
+
+</BrowserWindow>
+
+<br/>
+
+And all the discovered processes:
+<BrowserWindow>
+
+![image](../static/img/tutorial/processes.png)
+
+</BrowserWindow>
+
+<br/>
+
+Once Parca and Parca Agent are both running, you can navigate to the web interface on the browser.
+You should shortly see the `Select profile...` dropdown menu populate with the profiles that Parca is retrieving from itself and receiving from the Agent.
+
+<BrowserWindow>
+
+![image](../static/img/tutorial/cpu_sample_count.png)
+
+</BrowserWindow>
+
+<br/>
+
+Selecting `parca_agent_cpu_sample_count` as profile types and clicking the `Search` button will retrieve the profiles from Parca Agent for the time selection (default Last Hour).
+
+<BrowserWindow>
+
+![image](../static/img/tutorial/cpu_sample_count_select.png)
+
+</BrowserWindow>

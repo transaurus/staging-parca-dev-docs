@@ -1,0 +1,55 @@
+# Concepts
+
+import BrowserWindow from "@site/src/components/BrowserWindow";
+
+## Data model
+
+Parca's multi-dimensional data-model originates from the [Prometheus](https://prometheus.io/docs/concepts/data_model/) project. It allows for concise and easy to use label-selectors to slice and dice the data when [querying](./querying-parca).
+
+## Stable links
+
+Parca has a strong philosophy on having stable links. Observability projects work best when they can be shared with teams and so Parca does its best to represent the state of the frontend via the URL to be shared with other people via chat such as Discord, Slack or issue trackers like GitHub or GitLab.
+
+## Pprof
+
+Parca ingests profiles using the open-source pprof profile.proto format. More can be read about pprof and the format [here](https://github.com/google/pprof/blob/master/doc/README.md).
+
+#### How is this different than the pprof utility?
+
+The pprof utility offers a robust set of tools for exploring profiles. Parca specifically tries to solve the storage and retrieval of these profiles, and allows you to explore these profiles across time.
+
+## Flame Graphs
+
+Often to better understand how your application is behaving you need to compare two profiles. Parca allows you to make selections of two points in time that you want to compare and will generate an Flame Graph of the difference between the two selected profiles.
+
+If a span is larger in the second profile, you'll see that span colored in red, and will be darker shade the larger the difference is. This allows one to quickly visually identify where a program is growing in usage scope.
+
+<BrowserWindow>
+
+![image](https://user-images.githubusercontent.com/8681572/133893354-38719c9e-fc80-4d27-8b08-33f917d99df8.png)
+
+</BrowserWindow>
+
+You'll see in the image below with the profile selections reversed from the previous example, that the spans that are now smaller in the second selection are colored green. This allows you to quickly visually identify where improvements to usage are being made.
+
+<BrowserWindow>
+
+![image](https://user-images.githubusercontent.com/8681572/133893380-ca093b33-992c-4878-b96c-2f7c82473b65.png)
+
+</BrowserWindow>
+
+If a span remains blue, it means there was no significant change between the two compared profiles for that section of code.
+
+## Cumulative and Diff values
+
+When comparing two profiles, it's not unusual to see a `Cumulative` value and `Diff` value in the tooltip that displays when you hover over the Flame Graph.
+
+<BrowserWindow>
+
+![image](https://user-images.githubusercontent.com/9016992/146777868-90f145fd-aaab-451d-8848-247877a7dde3.png)
+
+</BrowserWindow>
+
+As an example, a stack trace like `main() > foo() > bar()` where `main` calls `foo` that calls `bar`. In one profile, we observe this stack trace running at 500ns, so its cumulative value will be 500 and then later in another profile, we see this stack trace but it was running for only 300ns, thus it's cumulative value will be 300.
+
+However, if we compare the latest stack trace that was running at 300ns to the former one running 500ns, we see that the diff is 300-500 = -200. It means that compared to the first profile we've seen this same stack trace 200ns less.

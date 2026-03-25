@@ -1,0 +1,30 @@
+{
+  "logo.alt": {
+    "message": "Parca Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Quick Start": {
+    "message": "Quick Start",
+    "description": "Navbar item with label Quick Start"
+  },
+  "item.label.Demo": {
+    "message": "Demo",
+    "description": "Navbar item with label Demo"
+  },
+  "item.label.Tutorial": {
+    "message": "Tutorial",
+    "description": "Navbar item with label Tutorial"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  },
+  "item.label.Twitter": {
+    "message": "Twitter",
+    "description": "Navbar item with label Twitter"
+  },
+  "item.label.Discord": {
+    "message": "Discord",
+    "description": "Navbar item with label Discord"
+  }
+}

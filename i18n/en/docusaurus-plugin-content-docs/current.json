@@ -1,0 +1,90 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Server": {
+    "message": "Server",
+    "description": "The label for category Server in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Operation": {
+    "message": "Operation",
+    "description": "The label for category Operation in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Visualization": {
+    "message": "Visualization",
+    "description": "The label for category Visualization in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Agent": {
+    "message": "Agent",
+    "description": "The label for category Agent in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Language Support": {
+    "message": "Language Support",
+    "description": "The label for category Language Support in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Tutorial": {
+    "message": "Tutorial",
+    "description": "The label for category Tutorial in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Running Parca": {
+    "message": "Running Parca",
+    "description": "The label for category Running Parca in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Deploying Parca": {
+    "message": "Deploying Parca",
+    "description": "The label for category Deploying Parca in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Profiling 101": {
+    "message": "Profiling 101",
+    "description": "The label for category Profiling 101 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.link.gRPC APIs": {
+    "message": "gRPC APIs",
+    "description": "The label for link gRPC APIs in sidebar tutorialSidebar, linking to https://buf.build/parca-dev/parca"
+  },
+  "sidebar.tutorialSidebar.doc.Overview": {
+    "message": "Overview",
+    "description": "The label for the doc item Overview in sidebar tutorialSidebar, linking to the doc overview"
+  },
+  "sidebar.tutorialSidebar.doc.Quick Start": {
+    "message": "Quick Start",
+    "description": "The label for the doc item Quick Start in sidebar tutorialSidebar, linking to the doc quickstart"
+  },
+  "sidebar.tutorialSidebar.doc.Concepts": {
+    "message": "Concepts",
+    "description": "The label for the doc item Concepts in sidebar tutorialSidebar, linking to the doc concepts"
+  },
+  "sidebar.tutorialSidebar.doc.FAQ": {
+    "message": "FAQ",
+    "description": "The label for the doc item FAQ in sidebar tutorialSidebar, linking to the doc faq"
+  },
+  "sidebar.tutorialSidebar.doc.Commercial Solutions": {
+    "message": "Commercial Solutions",
+    "description": "The label for the doc item Commercial Solutions in sidebar tutorialSidebar, linking to the doc commercial"
+  },
+  "sidebar.tutorialSidebar.doc.Debuginfo CLI": {
+    "message": "Debuginfo CLI",
+    "description": "The label for the doc item Debuginfo CLI in sidebar tutorialSidebar, linking to the doc debuginfo-cli"
+  },
+  "sidebar.tutorialSidebar.doc.Grafana Plugin": {
+    "message": "Grafana Plugin",
+    "description": "The label for the doc item Grafana Plugin in sidebar tutorialSidebar, linking to the doc grafana-plugin"
+  },
+  "sidebar.tutorialSidebar.doc.Governance": {
+    "message": "Governance",
+    "description": "The label for the doc item Governance in sidebar tutorialSidebar, linking to the doc governance"
+  },
+  "sidebar.tutorialSidebar.doc.Community": {
+    "message": "Community",
+    "description": "The label for the doc item Community in sidebar tutorialSidebar, linking to the doc community"
+  },
+  "sidebar.tutorialSidebar.doc.Resources": {
+    "message": "Resources",
+    "description": "The label for the doc item Resources in sidebar tutorialSidebar, linking to the doc talks"
+  },
+  "sidebar.tutorialSidebar.doc.Demo": {
+    "message": "Demo",
+    "description": "The label for the doc item Demo in sidebar tutorialSidebar, linking to the doc demo"
+  }
+}
