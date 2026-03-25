@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkparca_dev=globalThis.webpackChunkparca_dev||[]).push([[2634],{192(a,e,c){c.r(e),c.d(e,{default:()=>s});var t=c(6540),r=c(6347);const s=()=>t.createElement(r.rd,{to:"/docs/quickstart"})}}]);

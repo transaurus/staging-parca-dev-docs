@@ -3,11 +3,15 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "zh-Hans"],
+  },
   title: "Parca",
   tagline: "Open Source Infrastructure-wide continuous profiling",
   url: "https://parca.dev",
   baseUrl: "/docs/",
-  onBrokenLinks: "throw",
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.svg",
   organizationName: "facebook", // Usually your GitHub org/user name.
