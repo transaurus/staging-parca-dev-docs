@@ -1,0 +1,13 @@
+{
+  "description": "Repository-specific fixes for parca-dev/docs",
+  "fixes": {
+    "docusaurus-github-releases-plugin/src/index.js": [
+      {
+        "type": "replace",
+        "find": "const fetch = require(\"node-fetch\");\n\n",
+        "replace": "",
+        "comment": "node-fetch@3 is ESM-only and cannot be require()d in CommonJS. Node 18+ provides global fetch, so this line is unnecessary."
+      }
+    ]
+  }
+}
